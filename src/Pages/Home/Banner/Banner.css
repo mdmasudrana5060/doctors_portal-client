@@ -1,0 +1,7 @@
+.backgroundImage {
+    background-image: url('../../../images/bg.png');
+    background-repeat: no-repeat;
+    background-size: 40%;
+    margin: 40px;
+
+}
