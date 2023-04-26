@@ -6,6 +6,7 @@ import Dashboard from "../../Dashboard/Dashboard/Dashboard";
 import ManageDoctor from "../../Dashboard/ManageDoctor/ManageDoctor";
 import Payment from "../../Dashboard/Payment/Payment";
 import Home from "../../Home/Home/Home";
+import Testimonial from "../../Home/Testimonial/Testimonial";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Login from "../../Login/Login";
@@ -36,7 +37,12 @@ const router = createBrowserRouter([
             {
                 path: '/appointment',
                 element: <Appointment></Appointment>
+            },
+            {
+                path: '/reviews',
+                element: <Testimonial></Testimonial>
             }
+
         ]
     },
     {
@@ -65,7 +71,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <AdminRoute><Payment></Payment></AdminRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`https://doctors-portal-server-ten-sand.vercel.app/bookings/${params.id}`)
             }
 
 

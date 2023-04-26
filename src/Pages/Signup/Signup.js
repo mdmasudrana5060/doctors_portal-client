@@ -58,7 +58,7 @@ const Signup = () => {
 
         const user = { name, email };
 
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://doctors-portal-server-ten-sand.vercel.app/users`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -76,7 +76,7 @@ const Signup = () => {
     // getting jwt token from client side
     // const getUserToken = (email) => {
     //     console.log(email, 'from token function');
-    //     fetch(`http://localhost:5000/jwt?email=${email}`)
+    //     fetch(`https://doctors-portal-server-ten-sand.vercel.app/jwt?email=${email}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data);
