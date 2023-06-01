@@ -2,11 +2,14 @@ import { format } from 'date-fns';
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../Contexts/AuthProvider';
+import { Navigate } from "react-router-dom";
 
 const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
     const { name: treatmentName, slots, price } = treatment; //treatment is another name of appointmentOptions
     const date = format(selectedDate, "PP");
     const { user } = useContext(AuthContext);
+   
+    console.log(user);
 
     const handleBooking = e => {
         e.preventDefault();
@@ -24,7 +27,7 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
             email,
             phone, price
         };
-        fetch('https://doctors-portal-server-ten-sand.vercel.app/bookings', {
+        fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -57,7 +60,7 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
                 <div className="modal-box relative">
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-lg font-bold">{treatmentName}</h3>
-                    <form onSubmit={handleBooking} className='grid grid-cols-1 gap-4 mt-8'>
+                    {user?   <form onSubmit={handleBooking} className='grid grid-cols-1 gap-4 mt-8'>
                         <input type="text" disabled value={date} className="input input-bordered w-full " />
                         <select name='slot' className="select select-bordered w-full max-w-xs">
 
@@ -72,7 +75,8 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
                         <input type="text" placeholder="Phone number" name="phone" className="input input-bordered w-full " />
 
                         <input type="submit" value="Submit" className='input input-bordered w-full bg-accent text-white ' />
-                    </form>
+                    </form>:     <Navigate to="/dashboard" replace={true} />}
+                 
                 </div>
             </div>
 
