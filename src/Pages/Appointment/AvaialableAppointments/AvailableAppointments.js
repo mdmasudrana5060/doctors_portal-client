@@ -18,7 +18,7 @@ const AvailableAppointments = ({ selectedDate }) => {
     })
 
     // useEffect(() => {
-    //     fetch('https://doctors-portal-server-ten-sand.vercel.app/appointmentOptions')
+    //     fetch('http://localhost:5000/appointmentOptions')
     //         .then(res => res.json())
     //         .then(data => setAppointmentOptions(data))
     // }, [])

@@ -1,15 +1,15 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
-import { useNavigation } from 'react-day-picker';
-import { useLoaderData } from 'react-router-dom';
+
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import CheckOutForm from './CheckOutForm';
 
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 const Payment = () => {
     const booking = useLoaderData();
-    const navigation = useNavigation();
+     const navigation = useNavigation();
     const { name, price, appointmentDate, slot } = booking;
     if (navigation.state === 'loading') {
         return <progress className="progress w-56" value="0" max="100"></progress>

@@ -46,11 +46,11 @@ const MyAppointment = () => {
                                     <td>{booking.appointmentDate}</td>
                                     <td>{booking.slot}</td>
                                     <td>
-                                    < button className='btn btn-primary btn-sm' >Pay </button>
-                                        {/* {
+                                    {/* < button className='btn btn-primary btn-sm' >Pay </button> */}
+                                        {
                                             booking.price && !booking.paid && <Link to={`/dashboard/payment/${booking._id}`} >  < button className='btn btn-primary btn-sm' >Pay </button></Link>
 
-                                        } */}
+                                        }
                                         {
                                             booking.price && booking.paid && <span className='text-primary'>Paid</span>
                                         }
